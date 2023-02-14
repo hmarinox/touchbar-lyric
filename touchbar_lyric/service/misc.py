@@ -176,8 +176,7 @@ def megalobiz_music_search(title: str, artists: str) -> List[Song]:
     })
     search_results = requests.get(search_url, proxies=proxy)
     soup = BeautifulSoup(search_results.text, 'html.parser')
-    result_links = soup.find(id="list_entity_container").find_all(
-        "a", class_="entity_name")
+    result_links = soup.find(id="list_entity_container").find_all("a", class_="entity_name")
 
     for result_link in result_links:
         info = result_link.get_text()
